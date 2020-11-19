@@ -28,8 +28,8 @@ LayoutInflater inflater;
     public void setRecordList(List<Record> allRecordPass){
         recordList =allRecordPass;
         notifyDataSetChanged();
-
     }
+
     @NonNull
     @Override
     public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {

@@ -21,7 +21,7 @@ import java.util.List;
  */
 public class ListFragment extends Fragment {
     RecyclerView recyclerView;
-    RecyclerView.LayoutManager layoutManager;
+    LinearLayoutManager layoutManager;
     RecordViewModel recordViewModel;
     MyAdapter myAdapter;
     // TODO: Rename parameter arguments, choose names that match
@@ -71,6 +71,7 @@ public class ListFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_list, container, false);
         recyclerView = view.findViewById(R.id.recyclerView);
         layoutManager = new LinearLayoutManager(getContext());
+        layoutManager.setReverseLayout(true);
         recyclerView.setLayoutManager(layoutManager);
         myAdapter = new MyAdapter(getContext());
         recyclerView.setAdapter(myAdapter);
