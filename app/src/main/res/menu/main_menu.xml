@@ -10,4 +10,7 @@
     <item
         android:id="@+id/reminder"
         android:title="Reminder" />
+    <item
+        android:id="@+id/deleteAll"
+        android:title="Delete All" />
 </menu>

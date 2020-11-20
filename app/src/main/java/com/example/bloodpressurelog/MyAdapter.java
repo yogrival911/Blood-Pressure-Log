@@ -6,8 +6,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
@@ -16,6 +18,7 @@ import java.util.List;
 public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
 List<Record> recordList;
 LayoutInflater inflater;
+int selectedPosition;
 
     public MyAdapter(Context context) {
         inflater = LayoutInflater.from(context);
@@ -23,6 +26,10 @@ LayoutInflater inflater;
 
     public List<Record> getRecordList() {
         return recordList;
+    }
+
+    public  Record getRecordAt(int poistion){
+        return recordList.get(poistion);
     }
 
     public void setRecordList(List<Record> allRecordPass){
@@ -69,6 +76,15 @@ LayoutInflater inflater;
         holder.textViewTime.setText(recordList.get(position).getTime());
         holder.textViewBp.setText(recordList.get(position).getSys() + " / "+ recordList.get(position).getDia());
         holder.textViewNumber.setText(String.valueOf(position+1));
+
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(view.getContext(), "Touched - "+holder.getAdapterPosition(), Toast.LENGTH_SHORT).show();
+
+
+            }
+        });
     }
 
     @Override

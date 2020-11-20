@@ -2,6 +2,7 @@ package com.example.bloodpressurelog;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
@@ -9,6 +10,7 @@ import androidx.viewpager2.adapter.FragmentStateAdapter;
 import androidx.viewpager2.widget.ViewPager2;
 
 import android.app.Activity;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Canvas;
 import android.graphics.Paint;
@@ -44,6 +46,7 @@ public class MainActivity extends AppCompatActivity {
     private static final int SHOW_FILE =2;
     PdfDocument myPdfDocument;
     List<Uri> uriList;
+    AlertDialog.Builder alertDialogBuilder;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -87,6 +90,24 @@ public class MainActivity extends AppCompatActivity {
         viewPager2.setAdapter(pagerAdapter);
         new TabLayoutMediator(tabLayout, viewPager2, tabConfigurationStrategy).attach();
 
+        alertDialogBuilder = new AlertDialog.Builder(this);
+        alertDialogBuilder.setTitle("Warning");
+        alertDialogBuilder.setMessage("Do you want to delete all records ?");
+        alertDialogBuilder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                recordViewModel.deleteAll();
+                Toast.makeText(getApplicationContext(), "All Records Deleted", Toast.LENGTH_SHORT).show();
+            }
+        });
+        alertDialogBuilder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                Toast.makeText(getApplicationContext(),"Cancelled", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+
     }
 
     @Override
@@ -112,6 +133,11 @@ public class MainActivity extends AppCompatActivity {
             case R.id.reminder:
                 Intent remindActivity = new Intent(this, ReminderActivity.class);
                 startActivity(remindActivity);
+                break;
+            case R.id.deleteAll:
+                alertDialogBuilder.create();
+                alertDialogBuilder.show();
+
                 break;
             default:
         }

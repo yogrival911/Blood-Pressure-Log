@@ -21,6 +21,6 @@ public interface RecordDao {
     @Query("DELETE FROM reading_record")
     void deleteAll();
 
-    @Query("SELECT * FROM reading_record")
+    @Query("SELECT * FROM reading_record ORDER BY time DESC")
     LiveData<List<Record>> getAll();
 }
