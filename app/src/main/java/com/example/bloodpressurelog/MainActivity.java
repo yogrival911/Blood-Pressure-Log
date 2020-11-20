@@ -134,10 +134,15 @@ public class MainActivity extends AppCompatActivity {
                 Intent remindActivity = new Intent(this, ReminderActivity.class);
                 startActivity(remindActivity);
                 break;
+
             case R.id.deleteAll:
                 alertDialogBuilder.create();
                 alertDialogBuilder.show();
+                break;
 
+            case R.id.deleteSelected:
+                Intent intentDelete = new Intent(this, SelectedDeleteActivity.class);
+                startActivity(intentDelete);
                 break;
             default:
         }
