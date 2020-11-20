@@ -73,7 +73,7 @@ public class MainActivity extends AppCompatActivity {
 
         uriList = new ArrayList<>();
 
-        final String[] tabTitles = {"List", "Graph", "Monday"};
+        final String[] tabTitles = {"List", "Graph", "Status"};
 
 
         tabLayout = (TabLayout)findViewById(R.id.tabLayout);

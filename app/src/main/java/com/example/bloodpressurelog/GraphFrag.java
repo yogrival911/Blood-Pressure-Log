@@ -106,7 +106,7 @@ public class GraphFrag extends Fragment {
                 lineDataSetDia.setValueTextSize(6);
                 lineDataSetDia.setValueTextColor(Color.DKGRAY);
 
-//                lineChart.getDescription().setText("This is Description");
+                lineChart.getDescription().setText("Blood Pressure Chart");
                 lineChart.getDescription().setTextSize(12);
                 lineChart.setDrawMarkers(true);
                 lineChart.getXAxis().setPosition(XAxis.XAxisPosition.BOTH_SIDED);
@@ -127,13 +127,13 @@ public class GraphFrag extends Fragment {
                 iLineDataSets.add(lineDataSetDia);
                 LineData lineData = new LineData(iLineDataSets);
 
-                LimitLine ll1 = new LimitLine(130f, "Systolic");
+                LimitLine ll1 = new LimitLine(140f, "");
                 ll1.setLineWidth(1f);
                 ll1.enableDashedLine(20f, 10f, 0f);
                 ll1.setLabelPosition(LimitLine.LimitLabelPosition.RIGHT_TOP);
                 ll1.setTextSize(10f);
 
-                LimitLine ll2 = new LimitLine(60f, "Diastolic");
+                LimitLine ll2 = new LimitLine(70f, "");
                 ll2.setLineWidth(1f);
                 ll2.enableDashedLine(20f, 10f, 0f);
                 ll2.setLabelPosition(LimitLine.LimitLabelPosition.RIGHT_TOP);

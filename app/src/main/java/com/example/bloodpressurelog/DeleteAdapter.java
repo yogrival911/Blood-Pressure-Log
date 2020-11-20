@@ -67,7 +67,7 @@ public class DeleteAdapter extends RecyclerView.Adapter<DeleteAdapter.MyViewHold
             holder.itemView.setBackgroundColor(Color.parseColor("#E67E22"));
             holder.textViewMark.setText("High Stage-2");
         }
-        if(sys>=180 && dia>120){
+        if(sys>=180 || dia>120){
             holder.itemView.setBackgroundColor(Color.parseColor("#E74C3C"));
             holder.textViewMark.setText("Emergency");
         }

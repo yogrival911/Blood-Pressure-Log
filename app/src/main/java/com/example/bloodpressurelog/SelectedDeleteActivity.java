@@ -77,7 +77,7 @@ public class SelectedDeleteActivity extends AppCompatActivity {
             public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int direction) {
                 alertDialogBuilder.create();
                 alertDialogBuilder.show();
-                int position = viewHolder.getAdapterPosition();
+                position = viewHolder.getAdapterPosition();
             }
         }).attachToRecyclerView(recyclerView);
 
