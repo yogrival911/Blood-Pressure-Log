@@ -5,6 +5,7 @@ import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -52,23 +53,23 @@ int selectedPosition;
         int sys = Integer.parseInt(recordList.get(position).getSys());
         int dia = Integer.parseInt(recordList.get(position).getDia());
         if(sys<120 && dia<80){
-            holder.itemView.setBackgroundColor(Color.parseColor("#2ECC71"));
+            holder.heart.setImageResource(R.drawable.heart_green);
             holder.textViewMark.setText("Normal");
         }
         if((sys>=120 && sys<=129) && dia<80){
-            holder.itemView.setBackgroundColor(Color.parseColor("#F7DC6F"));
+            holder.heart.setImageResource(R.drawable.heart_yellow);
             holder.textViewMark.setText("Elevated");
         }
         if((sys>130 && sys<139) || (dia>80 && dia<=89)){
-            holder.itemView.setBackgroundColor(Color.parseColor("#F39C12"));
+            holder.heart.setImageResource(R.drawable.heart_orange_light);
             holder.textViewMark.setText("High Stage-1");
         }
         if((sys>=140 && sys<180) || (dia>=90 && dia<=120)){
-            holder.itemView.setBackgroundColor(Color.parseColor("#E67E22"));
+            holder.heart.setImageResource(R.drawable.heart_orange);
             holder.textViewMark.setText("High Stage-2");
         }
         if(sys>=180 || dia>120){
-            holder.itemView.setBackgroundColor(Color.parseColor("#E74C3C"));
+            holder.heart.setImageResource(R.drawable.heart_red);
             holder.textViewMark.setText("Emergency");
         }
 
@@ -96,6 +97,7 @@ int selectedPosition;
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
         TextView textViewDate,textViewTime,textViewBp, textViewNumber, textViewMark;
+        ImageView heart;
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
             textViewDate = (TextView)itemView.findViewById(R.id.textViewDate);
@@ -103,6 +105,7 @@ int selectedPosition;
             textViewBp = (TextView)itemView.findViewById(R.id.textViewBp);
             textViewNumber = (TextView)itemView.findViewById(R.id.textViewNumber);
             textViewMark = (TextView)itemView.findViewById(R.id.textViewMark);
+            heart = (ImageView)itemView.findViewById(R.id.heart);
         }
     }
 }

@@ -12,6 +12,8 @@ import androidx.viewpager2.widget.ViewPager2;
 import android.app.Activity;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.Typeface;
@@ -47,11 +49,16 @@ public class MainActivity extends AppCompatActivity {
     PdfDocument myPdfDocument;
     List<Uri> uriList;
     AlertDialog.Builder alertDialogBuilder;
+    Bitmap bitmap, scaleBitmap;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+
+        bitmap = BitmapFactory.decodeResource(getResources(),R.drawable.bp_log_icon);
+        scaleBitmap = Bitmap.createScaledBitmap(bitmap,200,200,false);
 
         fab = findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -89,25 +96,6 @@ public class MainActivity extends AppCompatActivity {
         pagerAdapter = new DemoFragAdapter(this);
         viewPager2.setAdapter(pagerAdapter);
         new TabLayoutMediator(tabLayout, viewPager2, tabConfigurationStrategy).attach();
-
-        alertDialogBuilder = new AlertDialog.Builder(this);
-        alertDialogBuilder.setTitle("Warning");
-        alertDialogBuilder.setMessage("Do you want to delete all records ?");
-        alertDialogBuilder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialogInterface, int i) {
-                recordViewModel.deleteAll();
-                Toast.makeText(getApplicationContext(), "All Records Deleted", Toast.LENGTH_SHORT).show();
-            }
-        });
-        alertDialogBuilder.setNegativeButton("No", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialogInterface, int i) {
-                Toast.makeText(getApplicationContext(),"Cancelled", Toast.LENGTH_SHORT).show();
-            }
-        });
-
-
     }
 
     @Override
@@ -121,13 +109,29 @@ public class MainActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         switch(item.getItemId()){
             case R.id.pdf:
-                Toast.makeText(this,"Pdf", Toast.LENGTH_SHORT).show();
+                if(recordList.size()!=0){
+                    Toast.makeText(this,"Pdf", Toast.LENGTH_SHORT).show();
 
-                Intent intent = new Intent(Intent.ACTION_CREATE_DOCUMENT);
-                intent.addCategory(Intent.CATEGORY_OPENABLE);
-                intent.setType("application/pdf");
-                intent.putExtra(Intent.EXTRA_TITLE, "invoice.pdf");
-                startActivityForResult(intent, CREATE_FILE);
+                    Intent intent = new Intent(Intent.ACTION_CREATE_DOCUMENT);
+                    intent.addCategory(Intent.CATEGORY_OPENABLE);
+                    intent.setType("application/pdf");
+                    intent.putExtra(Intent.EXTRA_TITLE, "Blood Pressure Log.pdf");
+                    startActivityForResult(intent, CREATE_FILE);
+                }
+                else{
+                    Toast.makeText(this,"Data not available", Toast.LENGTH_SHORT).show();
+                    AlertDialog.Builder alertDialogBuilderPdf = new AlertDialog.Builder(this);
+                    alertDialogBuilderPdf.setIcon(R.drawable.warning_icon);
+                    alertDialogBuilderPdf.setTitle("Data not available!");
+                    alertDialogBuilderPdf.setMessage("Please log readings to save data as PDF file");
+                    alertDialogBuilderPdf.setPositiveButton("Okay", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                        }
+                    });
+                    alertDialogBuilderPdf.create().show();
+                }
+
 
                 break;
             case R.id.reminder:
@@ -136,8 +140,24 @@ public class MainActivity extends AppCompatActivity {
                 break;
 
             case R.id.deleteAll:
-                alertDialogBuilder.create();
-                alertDialogBuilder.show();
+                alertDialogBuilder = new AlertDialog.Builder(this);
+                alertDialogBuilder.setIcon(R.drawable.warning_icon);
+                alertDialogBuilder.setTitle("Warning!");
+                alertDialogBuilder.setMessage("Do you want to delete all readings ?");
+                alertDialogBuilder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        recordViewModel.deleteAll();
+                        Toast.makeText(getApplicationContext(), "All readings Deleted", Toast.LENGTH_SHORT).show();
+                    }
+                });
+                alertDialogBuilder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        Toast.makeText(getApplicationContext(),"Cancelled", Toast.LENGTH_SHORT).show();
+                    }
+                });
+                alertDialogBuilder.create().show();
                 break;
 
             case R.id.deleteSelected:
@@ -172,6 +192,7 @@ public class MainActivity extends AppCompatActivity {
                 canvas.drawText("Date",350f, 200f, myPaint);
                 canvas.drawText("Time",550f, 200f, myPaint);
                 canvas.drawText("Sys / Dia",700f, 200f, myPaint);
+                canvas.drawBitmap(scaleBitmap,2100,250f,myPaint);
 
                 myPaint.setTextSize(20);
                 myPaint.setTypeface(Typeface.create(Typeface.DEFAULT, Typeface.NORMAL));
@@ -192,7 +213,7 @@ public class MainActivity extends AppCompatActivity {
                     myPdfDocument.writeTo(os);
                     os.close();
                     myPdfDocument.close();
-                    Log.i("yog", "saved");
+                    Toast.makeText(this, "Saved", Toast.LENGTH_SHORT).show();
                 }
                 catch (IOException e){
                     Log.i("yog", "error");
