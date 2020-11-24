@@ -129,7 +129,7 @@ public class FormActivity extends AppCompatActivity {
 
                 SimpleDateFormat sdfDate = new SimpleDateFormat("dd-MM-YY");
                 String date = sdfDate.format(new Date());
-                SimpleDateFormat sdfTime = new SimpleDateFormat("hh:mm:ss a");
+                SimpleDateFormat sdfTime = new SimpleDateFormat("hh:mm a");
                 String time = sdfTime.format(new Date());
 
                 Record newRecord = new Record(sysH,diaL,pulse, posture, position,breakfast,lunch,dinner,med, salt, sym,remark,date,time);

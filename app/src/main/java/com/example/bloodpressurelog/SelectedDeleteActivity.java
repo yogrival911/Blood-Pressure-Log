@@ -55,7 +55,7 @@ public class SelectedDeleteActivity extends AppCompatActivity {
             public void onClick(DialogInterface dialogInterface, int i) {
 
                 recordViewModel.delete(deleteAdapter.getRecordAt(position));
-                Toast.makeText(getApplicationContext(), "Selected Record Deleted", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), "Selected Reading Deleted", Toast.LENGTH_SHORT).show();
             }
         });
         alertDialogBuilder.setNegativeButton("No", new DialogInterface.OnClickListener() {

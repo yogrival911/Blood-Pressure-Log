@@ -9,7 +9,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".SelectedDeleteActivity"></activity>
+        <activity
+            android:name=".ExplainedActivity"
+            android:label="@string/title_activity_explained"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity android:name=".SelectedDeleteActivity" />
         <activity android:name=".ReminderActivity" />
         <activity android:name=".DemoActivity" />
         <activity android:name=".FormActivity" />

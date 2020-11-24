@@ -54,7 +54,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.demo);
 
 
         bitmap = BitmapFactory.decodeResource(getResources(),R.drawable.bp_log_icon);
@@ -163,6 +163,11 @@ public class MainActivity extends AppCompatActivity {
             case R.id.deleteSelected:
                 Intent intentDelete = new Intent(this, SelectedDeleteActivity.class);
                 startActivity(intentDelete);
+                break;
+
+            case R.id.explained:
+                Intent intentExplain = new Intent(this, ExplainedActivity.class);
+                startActivity(intentExplain);
                 break;
             default:
         }

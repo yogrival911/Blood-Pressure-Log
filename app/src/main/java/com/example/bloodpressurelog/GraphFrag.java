@@ -93,7 +93,6 @@ public class GraphFrag extends Fragment {
 
 //---------------systolic chart-------------------------
 
-                lineDataSetSys.setColors(R.color.colorPrimaryDark);
                 lineDataSetSys.setAxisDependency(YAxis.AxisDependency.LEFT);
                 lineDataSetSys.setHighlightEnabled(true);
                 lineDataSetSys.setLineWidth(0.5f);
@@ -138,7 +137,7 @@ public class GraphFrag extends Fragment {
                 lineDataSetDia.setAxisDependency(YAxis.AxisDependency.LEFT);
                 lineDataSetDia.setHighlightEnabled(true);
                 lineDataSetDia.setLineWidth(0.5f);
-                lineDataSetDia.setColor(Color.BLUE);
+                lineDataSetDia.setColor(R.color.colorPrimaryDark);
                 lineDataSetDia.setDrawHighlightIndicators(true);
                 lineDataSetDia.setHighLightColor(Color.GREEN);
                 lineDataSetDia.setValueTextSize(6);

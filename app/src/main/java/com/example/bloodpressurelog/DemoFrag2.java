@@ -77,7 +77,24 @@ public class DemoFrag2 extends Fragment {
                     }
                 }
 
-                List<PieEntry> dataValsPie = new ArrayList<>();
+//                int normalPer = (normal/total)*100;
+//                int elevatedPer = (elevated/total)*100;
+//                int stage1Per = (stage1/total)*100;
+//                int stage2Per = (stage2/total)*100;
+//                float emergencyPer = (emergency/total)*100;
+//
+//                float normalF = (float)normalPer;
+//                float elevatedF =(float) elevatedPer;
+//                float stage1F = (float) stage1Per;
+//                float stage2F = (float) stage2Per;
+//                float emergencyF = (float)emergencyPer;
+
+//                float normalPer = (float)((normal/total)*100);
+//                float elevatedPer = (float)((elevated/total)*100);
+//                float stage1Per = (float)((stage1/total)*100);
+//                float stage2Per = (float)((stage2/total)*100);
+//                float emergencyPer = (float)((emergency/total)*100);
+
                 float normalF = normal;
                 float elevatedF = elevated;
                 float stage1F = stage1;
@@ -99,6 +116,7 @@ public class DemoFrag2 extends Fragment {
                 pieEntryEmergency.setLabel("Emergency");
 
 
+                List<PieEntry> dataValsPie = new ArrayList<>();
                 dataValsPie.add(pieEntryNormal);
                 dataValsPie.add(pieEntryElevated);
                 dataValsPie.add(pieEntryStage1);
