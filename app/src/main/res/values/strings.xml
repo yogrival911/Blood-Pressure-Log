@@ -4,28 +4,20 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="title_activity_explained">ScrollingActivity</string>
     <string name="large_text">
-        "Material is the metaphor.\n\n"
 
-        "A material metaphor is the unifying theory of a rationalized space and a system of motion."
-        "The material is grounded in tactile reality, inspired by the study of paper and ink, yet "
-        "technologically advanced and open to imagination and magic.\n"
-        "Surfaces and edges of the material provide visual cues that are grounded in reality. The "
-        "use of familiar tactile attributes helps users quickly understand affordances. Yet the "
-        "flexibility of the material creates new affordances that supercede those in the physical "
-        "world, without breaking the rules of physics.\n"
-        "The fundamentals of light, surface, and movement are key to conveying how objects move, "
-        "interact, and exist in space and in relation to each other. Realistic lighting shows "
-        "seams, divides space, and indicates moving parts.\n\n"
+        "What do the numbers mean?
 
-        "Bold, graphic, intentional.\n\n"
+Everyone would like to have healthy blood pressure. But what exactly does that mean?
 
-        "The foundational elements of print based design typography, grids, space, scale, color, "
-        "and use of imagery guide visual treatments. These elements do far more than please the "
-        "eye. They create hierarchy, meaning, and focus. Deliberate color choices, edge to edge "
-        "imagery, large scale typography, and intentional white space create a bold and graphic "
-        "interface that immerse the user in the experience.\n"
-        "An emphasis on user actions makes core functionality immediately apparent and provides "
-        "waypoints for the user.\n\n"
+When your doctor takes your blood pressure, it’s expressed as a measurement with two numbers, with one number on top (systolic) and one on the bottom (diastolic), like a fraction. For example, 120/80 mm Hg.
+
+The top number refers to the amount of pressure in your arteries during the contraction of your heart muscle. This is called systolic pressure.
+
+The bottom number refers to your blood pressure when your heart muscle is between beats. This is called diastolic pressure.
+
+Both numbers are important in determining the state of your heart health.
+
+Numbers greater than the ideal range indicate that your heart is working too hard to pump blood to the rest of your body.\n\n"
 
         "Motion provides meaning.\n\n"
 
