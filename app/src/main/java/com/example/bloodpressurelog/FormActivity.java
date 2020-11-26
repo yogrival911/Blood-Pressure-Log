@@ -7,9 +7,11 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -17,9 +19,10 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class FormActivity extends AppCompatActivity {
-    EditText editTextSys, editTextDia,editTextPulse,editTextPosture, editTextPosition, editTextBreakFast, editTextLunch, editTextDinner, editTextMed,editTextSym, editTextSalt, editTextRemark;
+    EditText editTextSys, editTextDia,editTextPulse, editTextBreakFast, editTextLunch, editTextDinner, editTextMed,editTextSym, editTextSalt, editTextRemark;
     Button buttonSubmit;
     TextView textViewPop;
+    Spinner spinnerArm, spinnerPosture;
     RecordViewModel recordViewModel;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,11 +31,12 @@ public class FormActivity extends AppCompatActivity {
 
         recordViewModel = ViewModelProviders.of(this).get(RecordViewModel.class);
 
+        spinnerArm = (Spinner)findViewById(R.id.spinnerArm);
+        spinnerPosture = (Spinner)findViewById(R.id.spinnerPosture);
+
         editTextSys = (EditText)findViewById(R.id.editTextSys);
         editTextDia = (EditText)findViewById(R.id.editTextDia);
         editTextPulse =(EditText)findViewById(R.id.editTextPulse);
-        editTextPosture = (EditText)findViewById(R.id.editTextPosture);
-        editTextPosition = (EditText)findViewById(R.id.editTextPosition);
         editTextBreakFast = (EditText)findViewById(R.id.editTextBreakFast);
         editTextLunch = (EditText)findViewById(R.id.editTextLunch);
         editTextDinner = (EditText)findViewById(R.id.editTextDinner);
@@ -114,12 +118,14 @@ public class FormActivity extends AppCompatActivity {
         buttonSubmit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
                 String sysH = editTextSys.getText().toString();
                 String  diaL = editTextDia.getText().toString();
                 if(!sysH.equals("") && !diaL.equals("")){
+
+                    String spinArm = spinnerArm.getSelectedItem().toString();
+                    String spinPosture = spinnerPosture.getSelectedItem().toString();
                     String pulse = editTextPulse.getText().toString();
-                    String posture = editTextPosture.getText().toString();
-                    String position = editTextPosition.getText().toString();
                     String breakfast = editTextBreakFast.getText().toString();
                     String lunch = editTextLunch.getText().toString();
                     String dinner = editTextDinner.getText().toString();
@@ -133,7 +139,7 @@ public class FormActivity extends AppCompatActivity {
                     SimpleDateFormat sdfTime = new SimpleDateFormat("hh:mm a");
                     String time = sdfTime.format(new Date());
 
-                    Record newRecord = new Record(sysH,diaL,pulse, posture, position,breakfast,lunch,dinner,med, salt, sym,remark,date,time);
+                    Record newRecord = new Record(sysH,diaL,pulse, spinPosture, spinArm,breakfast,lunch,dinner,med, salt, sym,remark,date,time);
 
                     recordViewModel.insert(newRecord);
                     finish();

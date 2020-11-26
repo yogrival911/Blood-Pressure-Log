@@ -237,9 +237,10 @@ public class MainActivity extends AppCompatActivity {
                    canvas.drawText("Time",timeWidth, topMargin, myPaint);
                    canvas.drawText("Sys / Dia",sysDiaWidth, topMargin, myPaint);
                    canvas.drawText("Pulse Rate",pulseWidth, topMargin, myPaint);
-                   canvas.drawText("Arm/Posture",armWidth, topMargin, myPaint);
-                   canvas.drawText("Remark",remarkWidth, topMargin, myPaint);
+                   canvas.drawText("Arm / Body Position",armWidth+20, topMargin, myPaint);
+
 //           ------------------vertical lines (below)-----------------
+
                    canvas.drawLine(leftMargin,topMargin-40,leftMargin,pageHeight-bottomMargin-40, myPaint);
 
                    canvas.drawLine(numberWidth+70,topMargin-40,numberWidth+70,pageHeight-bottomMargin-40, myPaint);
@@ -247,7 +248,6 @@ public class MainActivity extends AppCompatActivity {
                    canvas.drawLine(timeWidth+140,topMargin-40,timeWidth+140,pageHeight-bottomMargin-40, myPaint);
                    canvas.drawLine(sysDiaWidth+120,topMargin-40,sysDiaWidth+120,pageHeight-bottomMargin-40, myPaint);
                    canvas.drawLine(pulseWidth+120,topMargin-40,pulseWidth+120,pageHeight-bottomMargin-40, myPaint);
-                   canvas.drawLine(armWidth+160,topMargin-40,armWidth+160,pageHeight-bottomMargin-40, myPaint);
 
                    canvas.drawLine(pageWidth - rightMargin,topMargin-40,pageWidth - rightMargin,pageHeight-bottomMargin-40, myPaint);
 //          ----------------------------------------------------------
@@ -262,9 +262,8 @@ public class MainActivity extends AppCompatActivity {
                        canvas.drawText(recordList.get(i).getDate(),dateWidth, topMargin + rowWidth + iWidth * rowWidth, myPaint);
                        canvas.drawText(recordList.get(i).getTime(),timeWidth, topMargin + rowWidth + iWidth * rowWidth, myPaint);
                        canvas.drawText(recordList.get(i).getSys() + " / " + recordList.get(i).getDia(),sysDiaWidth, topMargin + rowWidth + iWidth * rowWidth, myPaint);
-                       canvas.drawText(recordList.get(i).getPulse(),pulseWidth, topMargin + rowWidth + iWidth * rowWidth, myPaint);
+                       canvas.drawText(recordList.get(i).getPulse(),pulseWidth+20, topMargin + rowWidth + iWidth * rowWidth, myPaint);
                        canvas.drawText(recordList.get(i).getPosition()+" / " + recordList.get(i).getPosture(),armWidth, topMargin + rowWidth + iWidth * rowWidth, myPaint);
-                       canvas.drawText(recordList.get(i).getRemark(),remarkWidth, topMargin + rowWidth + iWidth * rowWidth, myPaint);
                        canvas.drawLine(leftMargin,topMargin + rowWidth + iWidth * rowWidth + linewidth,pageWidth - rightMargin,topMargin + rowWidth + iWidth * rowWidth + linewidth, myPaint);
                        iWidth++;
                    }

@@ -3,6 +3,18 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="title_activity_explained">ScrollingActivity</string>
+        <string-array name="arm_array">
+                <item>Left Arm</item>
+                <item>Right Arm</item>
+                <item>Left Wrist</item>
+                <item>Right Wrist</item>
+        </string-array>
+        <string-array name="posture_array">
+                <item>Sitting down</item>
+                <item>Lying Down</item>
+                <item>Semi-reclined</item>
+                <item>Standing up</item>
+        </string-array>
     <string name="large_text">
 
         "What do the numbers mean?
