@@ -244,10 +244,10 @@ public class MainActivity extends AppCompatActivity {
 
                    canvas.drawLine(numberWidth+70,topMargin-40,numberWidth+70,pageHeight-bottomMargin-40, myPaint);
                    canvas.drawLine(dateWidth+110,topMargin-40,dateWidth+110,pageHeight-bottomMargin-40, myPaint);
-                   canvas.drawLine(timeWidth+140,topMargin-40,timeWidth+120,pageHeight-bottomMargin-40, myPaint);
-                   canvas.drawLine(sysDiaWidth+120,topMargin-40,sysDiaWidth+100,pageHeight-bottomMargin-40, myPaint);
+                   canvas.drawLine(timeWidth+140,topMargin-40,timeWidth+140,pageHeight-bottomMargin-40, myPaint);
+                   canvas.drawLine(sysDiaWidth+120,topMargin-40,sysDiaWidth+120,pageHeight-bottomMargin-40, myPaint);
                    canvas.drawLine(pulseWidth+120,topMargin-40,pulseWidth+120,pageHeight-bottomMargin-40, myPaint);
-                   canvas.drawLine(armWidth+160,topMargin-40,armWidth+140,pageHeight-bottomMargin-40, myPaint);
+                   canvas.drawLine(armWidth+160,topMargin-40,armWidth+160,pageHeight-bottomMargin-40, myPaint);
 
                    canvas.drawLine(pageWidth - rightMargin,topMargin-40,pageWidth - rightMargin,pageHeight-bottomMargin-40, myPaint);
 //          ----------------------------------------------------------

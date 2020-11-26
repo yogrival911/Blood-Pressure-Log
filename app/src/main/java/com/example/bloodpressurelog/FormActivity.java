@@ -116,26 +116,31 @@ public class FormActivity extends AppCompatActivity {
             public void onClick(View view) {
                 String sysH = editTextSys.getText().toString();
                 String  diaL = editTextDia.getText().toString();
-                String pulse = editTextPulse.getText().toString();
-                String posture = editTextPosture.getText().toString();
-                String position = editTextPosition.getText().toString();
-                String breakfast = editTextBreakFast.getText().toString();
-                String lunch = editTextLunch.getText().toString();
-                String dinner = editTextDinner.getText().toString();
-                String med = editTextMed.getText().toString();
-                String salt = editTextSalt.getText().toString();
-                String sym = editTextSym.getText().toString();
-                String remark = editTextRemark.getText().toString();
+                if(!sysH.equals("") && !diaL.equals("")){
+                    String pulse = editTextPulse.getText().toString();
+                    String posture = editTextPosture.getText().toString();
+                    String position = editTextPosition.getText().toString();
+                    String breakfast = editTextBreakFast.getText().toString();
+                    String lunch = editTextLunch.getText().toString();
+                    String dinner = editTextDinner.getText().toString();
+                    String med = editTextMed.getText().toString();
+                    String salt = editTextSalt.getText().toString();
+                    String sym = editTextSym.getText().toString();
+                    String remark = editTextRemark.getText().toString();
 
-                SimpleDateFormat sdfDate = new SimpleDateFormat("dd-MM-YY");
-                String date = sdfDate.format(new Date());
-                SimpleDateFormat sdfTime = new SimpleDateFormat("hh:mm a");
-                String time = sdfTime.format(new Date());
+                    SimpleDateFormat sdfDate = new SimpleDateFormat("dd-MM-YY");
+                    String date = sdfDate.format(new Date());
+                    SimpleDateFormat sdfTime = new SimpleDateFormat("hh:mm a");
+                    String time = sdfTime.format(new Date());
 
-                Record newRecord = new Record(sysH,diaL,pulse, posture, position,breakfast,lunch,dinner,med, salt, sym,remark,date,time);
+                    Record newRecord = new Record(sysH,diaL,pulse, posture, position,breakfast,lunch,dinner,med, salt, sym,remark,date,time);
 
                     recordViewModel.insert(newRecord);
                     finish();
+                }
+                else{
+                    Toast.makeText(FormActivity.this, "Please Enter Data", Toast.LENGTH_SHORT).show();
+                }
             }
         });
 

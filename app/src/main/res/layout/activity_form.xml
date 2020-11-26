@@ -25,7 +25,7 @@
                 android:layout_marginTop="10dp"
                 android:text="Add New Reading"
                 android:textColor="@color/colorPrimary"
-                android:textSize="18sp" />
+                android:textSize="14sp" />
 
             <LinearLayout
                 android:id="@+id/linearLayout"
@@ -43,14 +43,16 @@
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="10dp"
                     android:layout_weight="2"
-                    android:background="@drawable/edit_text_design"
+                    android:background="@drawable/sys_dia_design"
+                    android:elevation="5dp"
                     android:ems="10"
                     android:hint="Systolic (e.g. 135)"
                     android:inputType="number"
                     android:paddingLeft="15dp"
-                    android:paddingTop="10dp"
-                    android:paddingBottom="10dp"
-                    android:textSize="14sp" />
+                    android:paddingTop="15dp"
+                    android:paddingBottom="15dp"
+                    android:textSize="12sp"
+                    android:textStyle="bold" />
 
                 <EditText
                     android:id="@+id/editTextDia"
@@ -58,15 +60,17 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="10dp"
                     android:layout_weight="2"
-                    android:background="@drawable/edit_text_design"
+                    android:background="@drawable/sys_dia_design"
+                    android:elevation="5dp"
                     android:ems="10"
                     android:hapticFeedbackEnabled="true"
                     android:hint="Diastolic (e.g. 65)"
                     android:inputType="number"
                     android:paddingLeft="15dp"
-                    android:paddingTop="10dp"
-                    android:paddingBottom="10dp"
-                    android:textSize="14sp" />
+                    android:paddingTop="15dp"
+                    android:paddingBottom="15dp"
+                    android:textSize="12sp"
+                    android:textStyle="bold" />
 
 
             </LinearLayout>
@@ -91,6 +95,15 @@
                     android:layout_weight="2"
                     android:textSize="18sp" />
 
+                <TextView
+                    android:id="@+id/textView5"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_weight="2"
+                    android:text="Optional fields."
+                    android:textSize="8sp" />
+
                 <EditText
                     android:id="@+id/editTextPulse"
                     android:layout_width="match_parent"
@@ -99,13 +112,14 @@
                     android:layout_marginTop="5dp"
                     android:layout_marginBottom="5dp"
                     android:background="@drawable/edit_text_design"
+                    android:elevation="2dp"
                     android:ems="10"
                     android:hint="Pulse Rate"
                     android:inputType="number"
                     android:paddingLeft="15dp"
                     android:paddingTop="10dp"
                     android:paddingBottom="10dp"
-                    android:textSize="12sp" />
+                    android:textSize="10sp" />
 
                 <EditText
                     android:id="@+id/editTextPosture"
@@ -115,13 +129,14 @@
                     android:layout_marginTop="5dp"
                     android:layout_marginBottom="5dp"
                     android:background="@drawable/edit_text_design"
+                    android:elevation="2dp"
                     android:ems="10"
                     android:hint="Posture (Standing, sitting etc.)"
                     android:inputType="textPersonName"
                     android:paddingLeft="15dp"
                     android:paddingTop="10dp"
                     android:paddingBottom="10dp"
-                    android:textSize="12sp" />
+                    android:textSize="10sp" />
 
                 <EditText
                     android:id="@+id/editTextPosition"
@@ -131,13 +146,14 @@
                     android:layout_marginTop="5dp"
                     android:layout_marginBottom="5dp"
                     android:background="@drawable/edit_text_design"
+                    android:elevation="2dp"
                     android:ems="10"
                     android:hint="Position(Left or Right Arm)"
                     android:inputType="textPersonName"
                     android:paddingLeft="15dp"
                     android:paddingTop="10dp"
                     android:paddingBottom="10dp"
-                    android:textSize="12sp" />
+                    android:textSize="10sp" />
 
                 <EditText
                     android:id="@+id/editTextBreakFast"
@@ -147,13 +163,14 @@
                     android:layout_marginTop="5dp"
                     android:layout_marginBottom="5dp"
                     android:background="@drawable/edit_text_design"
+                    android:elevation="2dp"
                     android:ems="10"
                     android:hint="Breakfast"
                     android:inputType="textPersonName"
                     android:paddingLeft="15dp"
                     android:paddingTop="10dp"
                     android:paddingBottom="10dp"
-                    android:textSize="12sp" />
+                    android:textSize="10sp" />
 
                 <EditText
                     android:id="@+id/editTextLunch"
@@ -163,13 +180,14 @@
                     android:layout_marginBottom="5dp"
                     android:background="@drawable/edit_text_design"
 
+                    android:elevation="2dp"
                     android:ems="10"
                     android:hint="Lunch"
                     android:inputType="textPersonName"
                     android:paddingLeft="15dp"
                     android:paddingTop="10dp"
                     android:paddingBottom="10dp"
-                    android:textSize="12sp" />
+                    android:textSize="10sp" />
 
                 <EditText
                     android:id="@+id/editTextDinner"
@@ -178,13 +196,14 @@
                     android:layout_marginTop="5dp"
                     android:layout_marginBottom="5dp"
                     android:background="@drawable/edit_text_design"
+                    android:elevation="2dp"
                     android:ems="10"
                     android:hint="Dinner"
                     android:inputType="textPersonName"
                     android:paddingLeft="15dp"
                     android:paddingTop="10dp"
                     android:paddingBottom="10dp"
-                    android:textSize="12sp" />
+                    android:textSize="10sp" />
 
                 <EditText
                     android:id="@+id/editTextMed"
@@ -193,13 +212,14 @@
                     android:layout_marginTop="5dp"
                     android:layout_marginBottom="5dp"
                     android:background="@drawable/edit_text_design"
+                    android:elevation="2dp"
                     android:ems="10"
                     android:hint="Medicine taken"
                     android:inputType="textPersonName"
                     android:paddingLeft="15dp"
                     android:paddingTop="10dp"
                     android:paddingBottom="10dp"
-                    android:textSize="12sp" />
+                    android:textSize="10sp" />
 
                 <EditText
                     android:id="@+id/editTextSalt"
@@ -208,13 +228,14 @@
                     android:layout_marginTop="5dp"
                     android:layout_marginBottom="5dp"
                     android:background="@drawable/edit_text_design"
+                    android:elevation="2dp"
                     android:ems="10"
                     android:hint="Salt Intake"
                     android:inputType="textPersonName"
                     android:paddingLeft="15dp"
                     android:paddingTop="10dp"
                     android:paddingBottom="10dp"
-                    android:textSize="12sp" />
+                    android:textSize="10sp" />
 
                 <EditText
                     android:id="@+id/editTextSym"
@@ -223,13 +244,14 @@
                     android:layout_marginTop="5dp"
                     android:layout_marginBottom="5dp"
                     android:background="@drawable/edit_text_design"
+                    android:elevation="2dp"
                     android:ems="10"
                     android:hint="Symptoms (If any)"
                     android:inputType="textPersonName"
                     android:paddingLeft="15dp"
                     android:paddingTop="10dp"
                     android:paddingBottom="10dp"
-                    android:textSize="12sp" />
+                    android:textSize="10sp" />
 
                 <EditText
                     android:id="@+id/editTextRemark"
@@ -238,13 +260,14 @@
                     android:layout_marginTop="5dp"
                     android:layout_marginBottom="5dp"
                     android:background="@drawable/edit_text_design"
+                    android:elevation="2dp"
                     android:ems="10"
                     android:hint="Remarks"
                     android:inputType="textPersonName"
                     android:paddingLeft="15dp"
                     android:paddingTop="10dp"
                     android:paddingBottom="10dp"
-                    android:textSize="12sp" />
+                    android:textSize="10sp" />
             </LinearLayout>
 
             <Button
@@ -254,6 +277,7 @@
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="5dp"
                 android:background="@drawable/btn_design"
+                android:elevation="3dp"
                 android:text="Submit"
                 android:textColor="#FFFFFF" />
         </LinearLayout>
