@@ -3,98 +3,87 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="title_activity_explained">ScrollingActivity</string>
-        <string-array name="arm_array">
-                <item>Left Arm</item>
-                <item>Right Arm</item>
-                <item>Left Wrist</item>
-                <item>Right Wrist</item>
-        </string-array>
-        <string-array name="posture_array">
-                <item>Sitting down</item>
-                <item>Lying Down</item>
-                <item>Semi-reclined</item>
-                <item>Standing up</item>
-        </string-array>
-    <string name="large_text">
+    <string-array name="arm_array">
+        <item>Left Arm</item>
+        <item>Right Arm</item>
+        <item>Left Wrist</item>
+        <item>Right Wrist</item>
+    </string-array>
+    <string-array name="posture_array">
+        <item>Sitting down</item>
+        <item>Lying Down</item>
+        <item>Semi-reclined</item>
+        <item>Standing up</item>
+    </string-array>
 
-        "What do the numbers mean?
-
-Everyone would like to have healthy blood pressure. But what exactly does that mean?
-
-When your doctor takes your blood pressure, it’s expressed as a measurement with two numbers, with one number on top (systolic) and one on the bottom (diastolic), like a fraction. For example, 120/80 mm Hg.
-
-The top number refers to the amount of pressure in your arteries during the contraction of your heart muscle. This is called systolic pressure.
-
-The bottom number refers to your blood pressure when your heart muscle is between beats. This is called diastolic pressure.
-
-Both numbers are important in determining the state of your heart health.
-
-Numbers greater than the ideal range indicate that your heart is working too hard to pump blood to the rest of your body.\n\n"
-
-        "Motion provides meaning.\n\n"
-
-        "Motion respects and reinforces the user as the prime mover. Primary user actions are "
-        "inflection points that initiate motion, transforming the whole design.\n"
-        "All action takes place in a single environment. Objects are presented to the user without "
-        "breaking the continuity of experience even as they transform and reorganize.\n"
-        "Motion is meaningful and appropriate, serving to focus attention and maintain continuity. "
-        "Feedback is subtle yet clear. Transitions are efﬁcient yet coherent.\n\n"
-
-        "3D world.\n\n"
-
-        "The material environment is a 3D space, which means all objects have x, y, and z "
-        "dimensions. The z-axis is perpendicularly aligned to the plane of the display, with the "
-        "positive z-axis extending towards the viewer. Every sheet of material occupies a single "
-        "position along the z-axis and has a standard 1dp thickness.\n"
-        "On the web, the z-axis is used for layering and not for perspective. The 3D world is "
-        "emulated by manipulating the y-axis.\n\n"
-
-        "Light and shadow.\n\n"
-
-        "Within the material environment, virtual lights illuminate the scene. Key lights create "
-        "directional shadows, while ambient light creates soft shadows from all angles.\n"
-        "Shadows in the material environment are cast by these two light sources. In Android "
-        "development, shadows occur when light sources are blocked by sheets of material at "
-        "various positions along the z-axis. On the web, shadows are depicted by manipulating the "
-        "y-axis only. The following example shows the card with a height of 6dp.\n\n"
-
-        "Resting elevation.\n\n"
-
-        "All material objects, regardless of size, have a resting elevation, or default elevation "
-        "that does not change. If an object changes elevation, it should return to its resting "
-        "elevation as soon as possible.\n\n"
-
-        "Component elevations.\n\n"
-
-        "The resting elevation for a component type is consistent across apps (e.g., FAB elevation "
-        "does not vary from 6dp in one app to 16dp in another app).\n"
-        "Components may have different resting elevations across platforms, depending on the depth "
-        "of the environment (e.g., TV has a greater depth than mobile or desktop).\n\n"
-
-        "Responsive elevation and dynamic elevation offsets.\n\n"
-
-        "Some component types have responsive elevation, meaning they change elevation in response "
-        "to user input (e.g., normal, focused, and pressed) or system events. These elevation "
-        "changes are consistently implemented using dynamic elevation offsets.\n"
-        "Dynamic elevation offsets are the goal elevation that a component moves towards, relative "
-        "to the component’s resting state. They ensure that elevation changes are consistent "
-        "across actions and component types. For example, all components that lift on press have "
-        "the same elevation change relative to their resting elevation.\n"
-        "Once the input event is completed or cancelled, the component will return to its resting "
-        "elevation.\n\n"
-
-        "Avoiding elevation interference.\n\n"
-
-        "Components with responsive elevations may encounter other components as they move between "
-        "their resting elevations and dynamic elevation offsets. Because material cannot pass "
-        "through other material, components avoid interfering with one another any number of ways, "
-        "whether on a per component basis or using the entire app layout.\n"
-        "On a component level, components can move or be removed before they cause interference. "
-        "For example, a floating action button (FAB) can disappear or move off screen before a "
-        "user picks up a card, or it can move if a snackbar appears.\n"
-        "On the layout level, design your app layout to minimize opportunities for interference. "
-        "For example, position the FAB to one side of stream of a cards so the FAB won’t interfere "
-        "when a user tries to pick up one of cards.\n\n"
-    </string>
     <string name="action_settings">Settings</string>
+    <string name="title_activity_scrolling">ScrollingActivity</string>
+
+    <string name="number_mean">
+        What do the numbers mean?
+        \n\nEveryone would like to have healthy blood pressure. But what exactly does that mean?
+
+        When your doctor takes your blood pressure, it’s expressed as a measurement with two numbers, with one number on top (systolic) and one on the bottom (diastolic), like a fraction. For example, 120/80 mm Hg.
+
+        The top number refers to the amount of pressure in your arteries during the contraction of your heart muscle. This is called systolic pressure.
+
+        The bottom number refers to your blood pressure when your heart muscle is between beats. This is called diastolic pressure.
+
+        Both numbers are important in determining the state of your heart health.
+
+        Numbers greater than the ideal range indicate that your heart is working too hard to pump blood to the rest of your body.
+    </string>
+    <string name="normal">
+        What’s a normal reading?
+        \n\nFor a normal reading, your blood pressure needs to show a top number (systolic pressure) that’s between 90 and less than 120 and a bottom number (diastolic pressure) that’s between 60 and less than 80. The American Heart Association (AHA) considers blood pressure to be within the normal range when both your systolic and diastolic numbers are in these ranges.
+
+Blood pressure readings are expressed in millimeters of mercury. This unit is abbreviated as mm Hg. A normal reading would be any blood pressure below 120/80 mm Hg and above 90/60 mm Hg in an adult.
+
+If you’re in the normal range, no medical intervention is needed. However, you should maintain a healthy lifestyle and healthy weight to help prevent hypertension from developing. Regular exercise and healthy eating can also help. You may need to be even more mindful of your lifestyle if hypertension runs in your family.
+    </string>
+
+    <string name="elevated">
+        Elevated blood pressure
+        \n\nNumbers higher than 120/80 mm Hg are a red flag that you need to take on heart-healthy habits.
+
+When your systolic pressure is between 120 and 129 mm Hg and your diastolic pressure is less than 80 mm Hg, it means you have elevated blood pressure.
+
+Although these numbers aren’t technically considered high blood pressure, you’ve moved out of the normal range. Elevated blood pressure has a good chance of turning into actual high blood pressure, which puts you at an increased risk of heart disease and stroke.
+
+No medications are necessary for elevated blood pressure. But this is when you should adopt healthier lifestyle choices. A balanced diet and regular exercise can help lower your blood pressure to a healthy range and help prevent elevated blood pressure from developing into full-fledged hypertension.
+    </string>
+
+    <string name="high1">
+        High Blood Pressure Stage-1
+        \n\nYou’ll generally be diagnosed with high blood pressure if your systolic blood pressure reaches between 130 and 139 mm Hg, or if your diastolic blood pressure reaches between 80 and 89 mm Hg. This is considered stage 1 hypertension.
+
+However, the AHA notes that if you get only one reading this high, you may not truly have high blood pressure. What determines the diagnosis of hypertension at any stage is the average of your numbers over a period of time.
+
+Your doctor can help you measure and track your blood pressure to confirm whether it’s too high. You may need to start taking medications if your blood pressure doesn’t improve after one month of following a healthy lifestyle, especially if you’re already at high risk for heart disease. If you’re at lower risk, your doctor may want to follow up in three to six months after you’ve adopted more healthy habits.
+
+If you’re 65 years or older and otherwise healthy, your doctor will likely recommend treatment and lifestyle changes once your systolic blood pressure is greater than 130 mm Hg. The treatment for adults 65 and older who have significant health problems should be made on a case-by-case basis.
+    </string>
+
+    <string name="high2">
+        High Blood Pressure Stage-2
+        \n\nStage 2 high blood pressure indicates an even more serious condition. If your blood pressure reading shows a top number of 140 or more, or a bottom number of 90 or more, it’s considered stage 2 hypertension.
+
+At this stage, your doctor will recommend one or more medications for keeping your blood pressure under control. But you shouldn’t rely solely on medications to treat hypertension. Lifestyle habits are just as important in stage 2 as they are in the other stages.
+
+    </string>
+
+    <string name="emergency">
+        Emergency
+        \n\nA blood pressure reading above 180/120 mm Hg indicates a serious health problem. The AHA refers to these high measurements as a “hypertensive crisis.” Blood pressure in this range requires urgent treatment even if there are no accompanying symptoms.
+
+You should seek emergency treatment if you have blood pressure in this range, which may accompany symptoms such as:
+
+chest pain
+shortness of breath
+visual changes
+symptoms of stroke, such as paralysis or a loss of muscle control in the face or an extremity
+blood in your urine
+dizziness
+headache
+    </string>
 </resources>

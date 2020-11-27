@@ -175,4 +175,14 @@
         app:layout_constraintStart_toStartOf="@+id/textView17"
         app:layout_constraintTop_toBottomOf="@+id/textView17" />
 
+    <ImageView
+        android:id="@+id/share"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="36dp"
+        android:layout_marginTop="71dp"
+        app:layout_constraintStart_toEndOf="@+id/textViewElevated"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/share" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

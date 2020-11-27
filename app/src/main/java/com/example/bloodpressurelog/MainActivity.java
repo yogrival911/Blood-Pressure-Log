@@ -165,7 +165,7 @@ public class MainActivity extends AppCompatActivity {
                 break;
 
             case R.id.explained:
-                Intent intentExplain = new Intent(this, ExplainedActivity.class);
+                Intent intentExplain = new Intent(this, ExplainActivity.class);
                 startActivity(intentExplain);
                 break;
             default:

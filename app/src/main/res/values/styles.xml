@@ -7,6 +7,10 @@
         <item name="colorAccent">#FF8105B5</item>
     </style>
 
+    <declare-styleable name="ExpandableTextView">
+        <attr name="trimLength" format="integer" />
+    </declare-styleable>
+
     <style name="AppTheme.NoActionBar">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>

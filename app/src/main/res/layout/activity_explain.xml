@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <com.example.bloodpressurelog.ExpandableTextView
+                android:id="@+id/numberMean"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginBottom="10dp"
+                android:lineSpacingExtra="8sp"
+                android:paddingTop="5dp"
+                android:paddingBottom="5dp"
+                android:textColor="#000000"
+                android:textSize="14sp" />
+
+
+            <com.example.bloodpressurelog.ExpandableTextView
+                android:id="@+id/normalVal"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginBottom="10dp"
+                android:lineSpacingExtra="8sp"
+                android:paddingTop="5dp"
+                android:paddingBottom="5dp"
+                android:textColor="#000000"
+                android:textSize="14sp" />
+
+            <com.example.bloodpressurelog.ExpandableTextView
+                android:id="@+id/elevated"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginBottom="10dp"
+                android:lineSpacingExtra="8sp"
+                android:paddingTop="5dp"
+                android:paddingBottom="5dp"
+                android:textColor="#000000"
+                android:textSize="14sp" />
+
+            <com.example.bloodpressurelog.ExpandableTextView
+                android:id="@+id/high1"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginBottom="10dp"
+                android:lineSpacingExtra="8sp"
+                android:paddingTop="5dp"
+                android:paddingBottom="5dp"
+                android:textColor="#000000"
+                android:textSize="14sp" />
+
+            <com.example.bloodpressurelog.ExpandableTextView
+                android:id="@+id/high2"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginBottom="10dp"
+                android:lineSpacingExtra="8sp"
+                android:paddingTop="5dp"
+                android:paddingBottom="5dp"
+                android:textColor="#000000"
+                android:textSize="14sp" />
+
+            <com.example.bloodpressurelog.ExpandableTextView
+                android:id="@+id/emergency"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginBottom="10dp"
+                android:lineSpacingExtra="8sp"
+                android:paddingTop="5dp"
+                android:paddingBottom="5dp"
+                android:textColor="#000000"
+                android:textSize="14sp" />
+
+
+
+        </LinearLayout>
+
+    </ScrollView>
+</LinearLayout>
