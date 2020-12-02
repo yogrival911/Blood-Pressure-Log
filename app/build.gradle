@@ -5,7 +5,7 @@ android {
     buildToolsVersion "30.0.1"
 
     defaultConfig {
-        applicationId "com.example.bloodpressurelog"
+        applicationId "com.yogrival.bloodpressurelog"
         minSdkVersion 22
         targetSdkVersion 30
         versionCode 1

@@ -17,14 +17,16 @@
             <com.github.mikephil.charting.charts.LineChart
                 android:id="@+id/lineChartSys"
                 android:layout_width="match_parent"
-                android:layout_height="300dp">
+                android:layout_height="300dp"
+                android:background="#FFFFFF">
 
             </com.github.mikephil.charting.charts.LineChart>
 
             <com.github.mikephil.charting.charts.LineChart
                 android:id="@+id/lineChartDia"
                 android:layout_width="match_parent"
-                android:layout_height="300dp">
+                android:layout_height="300dp"
+                android:background="#FFFFFF">
 
             </com.github.mikephil.charting.charts.LineChart>
 

@@ -2,6 +2,7 @@
 <androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
@@ -12,9 +13,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|end"
-        android:src="@drawable/ic_baseline_add_24"
-        app:elevation="6dp"
         android:layout_margin="@dimen/fab_margin"
+        android:src="@drawable/ic_baseline_add_24"
+        app:backgroundTint="@color/colorPrimaryDark"
+        app:elevation="6dp"
         app:pressedTranslationZ="12dp" />
 
     <LinearLayout
@@ -26,9 +28,11 @@
             android:id="@+id/tabLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:tabIndicatorColor="#FFFFFF"
-            android:background="@color/colorPrimaryDark"
-            app:tabTextColor="#FFFFFF" />
+            android:background="#FFFFFF"
+            app:tabIndicatorColor="#FF8105B5"
+            app:tabSelectedTextColor="@color/colorAccent"
+            app:tabTextColor="#000000"
+            app:tabIconTint="@color/your_color_selector"/>
 
         <androidx.viewpager2.widget.ViewPager2
             android:id="@+id/viewPager2"

@@ -2,6 +2,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/conLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
@@ -29,9 +30,9 @@
             android:id="@+id/tabLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="#8105B5"
-            app:tabIndicatorColor="#FFFFFF"
-            app:tabTextColor="#FFFFFF"
+            android:background="#FFFFFF"
+            app:tabIndicatorColor="#000000"
+            app:tabTextColor="#000000"
             tools:ignore="MissingConstraints">
 
             <com.google.android.material.tabs.TabItem

@@ -4,22 +4,32 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.coordinatorlayout.widget.CoordinatorLayout;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
+import androidx.room.Database;
 import androidx.viewpager2.adapter.FragmentStateAdapter;
 import androidx.viewpager2.widget.ViewPager2;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Paint;
+import android.graphics.PorterDuff;
 import android.graphics.Typeface;
 import android.graphics.pdf.PdfDocument;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Environment;
+import android.preference.PreferenceManager;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -31,6 +41,9 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.tabs.TabLayout;
 import com.google.android.material.tabs.TabLayoutMediator;
 
+import java.io.File;
+import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.util.ArrayList;
@@ -50,14 +63,31 @@ public class MainActivity extends AppCompatActivity {
     List<Uri> uriList;
     AlertDialog.Builder alertDialogBuilder;
     Bitmap bitmap, scaleBitmap, lineBitmapMain, lineScaleBitmap;
+    CoordinatorLayout layout;
+    SharedPreferences sharedpreferences;
 
+    int lowSys, lowDia,normalSys,normalDia,elevatedSys,elevatedDia,high1Sys,high1Dia,high2Sys,high2Dia;
+    File exportDir;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.demo);
 
-        bitmap = BitmapFactory.decodeResource(getResources(),R.drawable.bp_log_icon);
-        scaleBitmap = Bitmap.createScaledBitmap(bitmap,200,200,false);
+//
+//        sharedpreferences = PreferenceManager.getDefaultSharedPreferences(this);
+//        SharedPreferences.Editor editor = sharedpreferences.edit();
+//        editor.putInt("lowSys", 55);
+//        editor.commit();
+//        Log.i("yogshare", "Main"+sharedpreferences.getInt("lowSys",0));
+
+
+//        bitmap = BitmapFactory.decodeResource(getResources(),R.drawable.bp_log_icon);
+//        scaleBitmap = Bitmap.createScaledBitmap(bitmap,200,200,false);
+//
+//        layout = (CoordinatorLayout) findViewById(R.id.layout);
+//
+//        lineBitmapMain = Bitmap.createBitmap(layout.getWidth(), layout.getHeight(), Bitmap.Config.ARGB_8888);
+//        scaleBitmap = Bitmap.createScaledBitmap(lineBitmapMain,200,200,false);
 
         fab = findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -67,6 +97,9 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+
+        exportDir = new File(this.getExternalFilesDir("/"), "");
 
 
         recordViewModel = ViewModelProviders.of(this).get(RecordViewModel.class);
@@ -79,7 +112,8 @@ public class MainActivity extends AppCompatActivity {
 
         uriList = new ArrayList<>();
 
-        final String[] tabTitles = {"List", "Graph", "Status"};
+        final String[] tabTitles = {"Log", "Graph", "Status"};
+        final int[] tabIcon = {R.drawable.list_black, R.drawable.chart_black_empty, R.drawable.heart_empty};
 
 
         tabLayout = (TabLayout)findViewById(R.id.tabLayout);
@@ -87,14 +121,18 @@ public class MainActivity extends AppCompatActivity {
         TabLayoutMediator.TabConfigurationStrategy tabConfigurationStrategy =new TabLayoutMediator.TabConfigurationStrategy() {
             @Override
             public void onConfigureTab(@NonNull TabLayout.Tab tab, int position) {
-                tab.setText(tabTitles[position]);
+//                tab.setText(tabTitles[position]);
+                tab.setIcon(tabIcon[position]);
+                tab.setTabLabelVisibility(TabLayout.TAB_LABEL_VISIBILITY_LABELED);
             }
         };
+
         TabLayoutMediator mediator;
         viewPager2 = findViewById(R.id.viewPager2);
         pagerAdapter = new DemoFragAdapter(this);
         viewPager2.setAdapter(pagerAdapter);
         new TabLayoutMediator(tabLayout, viewPager2, tabConfigurationStrategy).attach();
+
     }
 
     @Override
@@ -106,19 +144,18 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        switch(item.getItemId()){
+        switch(item.getItemId()) {
             case R.id.pdf:
-                if(recordList.size()!=0){
-                    Toast.makeText(this,"Pdf", Toast.LENGTH_SHORT).show();
+                if (recordList.size() != 0) {
+                    Toast.makeText(this, "Pdf", Toast.LENGTH_SHORT).show();
 
                     Intent intent = new Intent(Intent.ACTION_CREATE_DOCUMENT);
                     intent.addCategory(Intent.CATEGORY_OPENABLE);
                     intent.setType("application/pdf");
                     intent.putExtra(Intent.EXTRA_TITLE, "Blood Pressure Log.pdf");
                     startActivityForResult(intent, CREATE_FILE);
-                }
-                else{
-                    Toast.makeText(this,"Data not available", Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(this, "Data not available", Toast.LENGTH_SHORT).show();
                     AlertDialog.Builder alertDialogBuilderPdf = new AlertDialog.Builder(this);
                     alertDialogBuilderPdf.setIcon(R.drawable.warning_icon);
                     alertDialogBuilderPdf.setTitle("Data not available!");
@@ -153,7 +190,7 @@ public class MainActivity extends AppCompatActivity {
                 alertDialogBuilder.setNegativeButton("No", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
-                        Toast.makeText(getApplicationContext(),"Cancelled", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getApplicationContext(), "Cancelled", Toast.LENGTH_SHORT).show();
                     }
                 });
                 alertDialogBuilder.create().show();
@@ -168,6 +205,82 @@ public class MainActivity extends AppCompatActivity {
                 Intent intentExplain = new Intent(this, ExplainActivity.class);
                 startActivity(intentExplain);
                 break;
+
+            case R.id.exportCSV:
+
+                RoomDatabaseRecord db = RoomDatabaseRecord.getDatabaseInstance(this);
+                Log.i("yog", exportDir.toString());
+                if (!exportDir.exists()) {
+                    exportDir.mkdirs();
+                }
+
+                File file = new File(exportDir, "blood_pressure_log.csv");
+                try {
+                    file.createNewFile();
+                    CSVWriter csvWrite = new CSVWriter(new FileWriter(file));
+                    Cursor curCSV = db.query("SELECT * FROM reading_record", null);
+                    csvWrite.writeNext(curCSV.getColumnNames());
+                    while (curCSV.moveToNext()) {
+                        //Which column you want to exprort
+                        String arrStr[] = new String[curCSV.getColumnCount()];
+                        for (int i = 0; i < curCSV.getColumnCount() - 1; i++)
+                            arrStr[i] = curCSV.getString(i);
+                        csvWrite.writeNext(arrStr);
+                    }
+                    csvWrite.close();
+                    curCSV.close();
+                    Log.i("yogCSV", "SAVED");
+                    Toast.makeText(getApplicationContext(), "Exported Successfully", Toast.LENGTH_SHORT).show();
+                } catch (Exception sqlEx) {
+                    Log.e("yogCSV", sqlEx.getMessage(), sqlEx);
+                }
+                break;
+
+            case R.id.range:
+                Intent rangeIntent = new Intent(this, CustomRange.class);
+                startActivity(rangeIntent);
+                break;
+
+//            case R.id.importCSV:
+//                String[] nextLine = null;
+//                int count = 0;
+//                StringBuilder columns = new StringBuilder();
+//                StringBuilder value = new StringBuilder();
+//
+//                try{
+//
+//                    CSVReader csvReader = new CSVReader(new FileReader(exportDir));
+//                    while ((nextLine = csvReader.readNext()) != null) {
+//                        // nextLine[] is an array of values from the line
+//                        for (int i = 0; i < nextLine.length - 1; i++) {
+//                            if (count == 0) {
+//                                if (i == nextLine.length - 2)
+//                                    columns.append(nextLine[i]);
+//                                else
+//                                    columns.append(nextLine[i]).append(",");
+//                            } else {
+//                                if (i == nextLine.length - 2)
+//                                    value.append("'").append(nextLine[i]).append("'");
+//                                else
+//                                    value.append("'").append(nextLine[i]).append("',");
+//                            }
+//                        }
+//
+//                    }
+//                    Log.i("yogCSV", value.toString());
+//                }catch (Exception e){
+//                    e.printStackTrace();
+//
+//                    Log.i("yogCSV", "IMPORT ERROR");
+//                }
+//
+
+//                break;
+
+//            case R.id.customRange:
+//                Intent rangeIntent = new Intent(this, CustomRange.class);
+//                startActivity(rangeIntent);
+//                break;
             default:
         }
         return true;
@@ -251,8 +364,8 @@ public class MainActivity extends AppCompatActivity {
 
                    canvas.drawLine(pageWidth - rightMargin,topMargin-40,pageWidth - rightMargin,pageHeight-bottomMargin-40, myPaint);
 //          ----------------------------------------------------------
-
-//                canvas.drawBitmap(scaleBitmap,2100,250f,myPaint);
+//
+//                canvas.drawBitmap(scaleBitmap,200,250f,myPaint);
 
                    myPaint.setTextSize(20);
                    myPaint.setTypeface(Typeface.create(Typeface.DEFAULT, Typeface.NORMAL));

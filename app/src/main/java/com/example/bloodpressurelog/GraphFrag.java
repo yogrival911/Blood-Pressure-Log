@@ -83,8 +83,8 @@ public class GraphFrag extends Fragment {
 //                scatterChart = (ScatterChart)view.findViewById(R.id.scatterChart);
                 //Log.i("yog", recordList.toString());
 
-                LineDataSet lineDataSetDia = new LineDataSet(dataValsDia, "Diastolic");
-                LineDataSet lineDataSetSys = new LineDataSet(dataValsSys, "Systolic");
+                LineDataSet lineDataSetDia = new LineDataSet(dataValsDia, "Diastolic Chart");
+                LineDataSet lineDataSetSys = new LineDataSet(dataValsSys, "Systolic Chart");
 
 //---------------systolic chart-------------------------
 
@@ -102,7 +102,7 @@ public class GraphFrag extends Fragment {
 
                 LineData lineDataSys = new LineData(lineDataSetSys);
 
-                lineChartSys.getDescription().setText("Systolic Chart");
+                lineChartSys.getDescription().setText("");
                 lineChartSys.getDescription().setTextSize(8);
                 lineChartSys.setDrawMarkers(true);
                 lineChartSys.getXAxis().setPosition(XAxis.XAxisPosition.BOTTOM);
@@ -143,7 +143,7 @@ public class GraphFrag extends Fragment {
 
                 LineData lineDataDia = new LineData(lineDataSetDia);
 
-                lineChartDia.getDescription().setText("Diastolic Chart");
+                lineChartDia.getDescription().setText("");
                 lineChartDia.getDescription().setTextSize(8);
                 lineChartDia.setDrawMarkers(true);
                 lineChartDia.getXAxis().setPosition(XAxis.XAxisPosition.BOTTOM);

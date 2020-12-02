@@ -91,7 +91,7 @@ public class FormActivity extends AppCompatActivity {
                         textViewPop.setText("Elevated BP");
                         textViewPop.setTextColor(Color.parseColor("#F7DC6F"));
                     }
-                    if((sys>130 && sys<139) || (dia>80 && dia<=89)){
+                    if((sys>130 && sys<139) || (dia>=80 && dia<=89)){
                         textViewPop.setText("High BP (Stage-1)");
                         textViewPop.setTextColor(Color.parseColor("#F39C12"));
                     }

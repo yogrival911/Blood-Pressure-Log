@@ -14,7 +14,6 @@
             android:id="@+id/linearLayout2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="#FF8105B5"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
@@ -26,39 +25,39 @@
                 android:layout_weight=".5"
                 android:text="No."
                 android:textAlignment="center"
-                android:textColor="#FFFFFF"
+                android:textColor="#000000"
                 android:textSize="12sp" />
 
             <TextView
                 android:id="@+id/textViewDate"
-                android:layout_width="wrap_content"
+                android:layout_width="1dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="Date"
                 android:textAlignment="center"
-                android:textColor="#FFFFFF"
+                android:textColor="#000000"
                 android:textSize="12sp" />
 
             <TextView
                 android:id="@+id/textViewTime"
-                android:layout_width="wrap_content"
+                android:layout_width="12dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
+                android:layout_weight="1.5"
                 android:text="Time"
                 android:textAlignment="center"
-                android:textColor="#FFFFFF"
+                android:textColor="#000000"
                 android:textSize="12sp" />
 
             <TextView
                 android:id="@+id/textViewBp"
-                android:layout_width="wrap_content"
+                android:layout_width="63dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:backgroundTint="#E45252"
                 android:text="Sys/Dia"
                 android:textAlignment="center"
-                android:textColor="#FFFFFF"
-                android:textSize="18sp" />
+                android:textColor="#000000"
+                android:textSize="12sp"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/textViewRemark"
@@ -67,7 +66,7 @@
                 android:layout_weight="2"
                 android:text="Remark"
                 android:textAlignment="center"
-                android:textColor="#FFFFFF"
+                android:textColor="#000000"
                 android:textSize="12sp" />
 
         </LinearLayout>

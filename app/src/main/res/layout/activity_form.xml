@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#FFFFFF"
     tools:context=".FormActivity">
 
     <ScrollView
@@ -22,7 +23,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="10dp"
-                android:text="Add New Reading"
+                android:text="Log New Reading"
                 android:textColor="@color/colorPrimary"
                 android:textSize="14sp" />
 
@@ -110,8 +111,9 @@
 
                     <Spinner
                         android:id="@+id/spinnerArm"
-                        android:layout_width="181dp"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_weight="1"
                         android:backgroundTint="@color/colorPrimaryDark"
                         android:drawSelectorOnTop="true"
                         android:entries="@array/arm_array"
@@ -121,9 +123,9 @@
 
                     <Spinner
                         android:id="@+id/spinnerPosture"
-                        android:layout_width="match_parent"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:backgroundTint="@color/colorPrimaryDark"
+                        android:layout_weight="1"
                         android:drawSelectorOnTop="true"
                         android:entries="@array/posture_array"
                         android:paddingTop="10dp"

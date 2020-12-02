@@ -1,7 +1,9 @@
 package com.example.bloodpressurelog;
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.graphics.Color;
+import android.preference.PreferenceManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -20,9 +22,26 @@ public class DeleteAdapter extends RecyclerView.Adapter<DeleteAdapter.MyViewHold
     List<Record> recordList;
     LayoutInflater inflater;
     int selectedPosition;
-
+    SharedPreferences sharedpreferences;
+    int lowSys, lowDia,normalSys,normalDia,elevatedSys,elevatedDia,high1Sys,high1Dia,high2Sys,high2Dia;
     public DeleteAdapter(Context context) {
         inflater = LayoutInflater.from(context);
+        sharedpreferences = PreferenceManager.getDefaultSharedPreferences(context);
+
+        lowSys = sharedpreferences.getInt("lowSys", 90);
+        lowDia = sharedpreferences.getInt("lowDia", 60);
+
+        normalSys = sharedpreferences.getInt("normalSys", 120);
+        normalDia = sharedpreferences.getInt("normalDia", 75);
+
+        elevatedSys = sharedpreferences.getInt("elevatedSys", 130);
+        elevatedDia = sharedpreferences.getInt("elevatedDia", 80);
+
+        high1Sys = sharedpreferences.getInt("high1Sys", 140);
+        high1Dia = sharedpreferences.getInt("high1Dia", 90);
+
+        high2Sys = sharedpreferences.getInt("high2Sys", 180);
+        high2Dia = sharedpreferences.getInt("high2Dia", 120);
     }
 
     public List<Record> getRecordList() {
@@ -52,23 +71,34 @@ public class DeleteAdapter extends RecyclerView.Adapter<DeleteAdapter.MyViewHold
 
         int sys = Integer.parseInt(recordList.get(position).getSys());
         int dia = Integer.parseInt(recordList.get(position).getDia());
-        if(sys<120 && dia<80){
+
+
+        if(sys<=lowSys || dia<=lowDia){
+            holder.heart.setImageResource(R.drawable.fav_icon);
+            holder.textViewMark.setText("Low");
+        }
+
+        if((sys>lowSys && sys<=normalSys) &&(dia>lowDia && dia<=normalDia)){
             holder.heart.setImageResource(R.drawable.heart_green);
             holder.textViewMark.setText("Normal");
         }
-        if((sys>=120 && sys<=129) && dia<80){
+        if((sys>normalSys && sys<=elevatedSys) &&(dia>normalDia && dia<=elevatedDia)){
             holder.heart.setImageResource(R.drawable.heart_yellow);
             holder.textViewMark.setText("Elevated");
         }
-        if((sys>130 && sys<139) || (dia>80 && dia<=89)){
+        if((sys>normalSys && sys<=elevatedSys) && (dia>lowDia && dia<=normalDia)){
+            holder.heart.setImageResource(R.drawable.heart_yellow);
+            holder.textViewMark.setText("Elevated");
+        }
+        if((sys>elevatedSys && sys<=high1Sys) || (dia>elevatedDia && dia<=high1Dia)){
             holder.heart.setImageResource(R.drawable.heart_orange_light);
             holder.textViewMark.setText("High Stage-1");
         }
-        if((sys>=140 && sys<180) || (dia>=90 && dia<=120)){
+        if((sys>high1Sys && sys<=high2Sys) || (dia>high1Dia && dia<=high2Dia)){
             holder.heart.setImageResource(R.drawable.heart_orange);
             holder.textViewMark.setText("High Stage-2");
         }
-        if(sys>=180 || dia>120){
+        if(sys>high2Sys || dia>high2Dia){
             holder.heart.setImageResource(R.drawable.heart_red);
             holder.textViewMark.setText("Emergency");
         }

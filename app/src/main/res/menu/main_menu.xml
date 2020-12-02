@@ -8,15 +8,21 @@
         android:title="Save as Pdf"
         app:showAsAction="always" />
     <item
-        android:id="@+id/reminder"
-        android:title="Reminder" />
-    <item
         android:id="@+id/deleteSelected"
         android:title="Delete Selected" />
     <item
         android:id="@+id/deleteAll"
         android:title="Delete All" />
     <item
+        android:id="@+id/exportCSV"
+        android:title="Export CSV" />
+    <item
         android:id="@+id/explained"
-        android:title="Explained" />
+        android:title="Guide" />
+    <item
+        android:id="@+id/reminder"
+        android:title="Reminder" />
+    <item
+        android:id="@+id/range"
+        android:title="Custom Range" />
 </menu>

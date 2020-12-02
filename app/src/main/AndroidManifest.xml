@@ -9,10 +9,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ExplainActivity"></activity>
+        <activity android:name=".CustomRange"></activity>
+        <activity android:name=".ExplainActivity" />
         <activity android:name=".SelectedDeleteActivity" />
         <activity android:name=".ReminderActivity" />
-        <activity android:name=".DemoActivity" />
         <activity android:name=".FormActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
