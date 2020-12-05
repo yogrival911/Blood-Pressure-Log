@@ -8,6 +8,9 @@
         android:title="Save as Pdf"
         app:showAsAction="always" />
     <item
+        android:id="@+id/range"
+        android:title="Custom Range" />
+    <item
         android:id="@+id/deleteSelected"
         android:title="Delete Selected" />
     <item
@@ -19,10 +22,4 @@
     <item
         android:id="@+id/explained"
         android:title="Guide" />
-    <item
-        android:id="@+id/reminder"
-        android:title="Reminder" />
-    <item
-        android:id="@+id/range"
-        android:title="Custom Range" />
 </menu>

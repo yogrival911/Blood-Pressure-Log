@@ -51,7 +51,7 @@ public class DemoFrag2 extends Fragment {
         textViewStage1 = (TextView)view.findViewById(R.id.textViewStage1);
         textViewStage2 = (TextView)view.findViewById(R.id.textViewStage2);
         textViewEmergency = (TextView)view.findViewById(R.id.textViewEmergency);
-        share = (ImageView)view.findViewById(R.id.share);
+
         conLayout = (ConstraintLayout)view.findViewById(R.id.conLayout);
 
         sharedpreferences = PreferenceManager.getDefaultSharedPreferences(getActivity());
@@ -70,41 +70,6 @@ public class DemoFrag2 extends Fragment {
 
         high2Sys = sharedpreferences.getInt("high2Sys", 180);
         high2Dia = sharedpreferences.getInt("high2Dia", 120);
-//        share.setOnClickListener(new View.OnClickListener() {
-//            @SuppressLint("ResourceAsColor")
-//            @Override
-//            public void onClick(View view) {
-//                Bitmap bitmap = Bitmap.createBitmap(pieChart.getWidth(),pieChart.getHeight(),Bitmap.Config.ARGB_8888);
-//                Canvas canvas = new Canvas(bitmap);
-//                Drawable drawable = pieChart.getBackground();
-//                if(drawable != null){
-//                    drawable.draw(canvas);
-//                }
-//                else {
-//                    canvas.drawColor(Color.WHITE);
-//                }
-//                pieChart.draw(canvas);
-//                File file = new File(getActivity().getExternalCacheDir(),"background.png");
-//                try {
-//                    FileOutputStream fileOutputStream = new FileOutputStream(file);
-//                    bitmap.compress(Bitmap.CompressFormat.PNG, 100, fileOutputStream);
-//                    fileOutputStream.flush();
-//                    fileOutputStream.close();
-//                    file.setReadable(true,true);
-//                    Log.i("yog", "setRead");
-//                    Intent intent = new Intent(Intent.ACTION_SEND);
-//                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-//                    intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
-//                    intent.putExtra(Intent.EXTRA_STREAM, Uri.fromFile(file));
-//                    intent.setType(("image/png"));
-//                    startActivity(Intent.createChooser(intent, "Share via"));
-//                } catch (FileNotFoundException e) {
-//                    e.printStackTrace();
-//                } catch (IOException e) {
-//                    e.printStackTrace();
-//                }
-//            }
-//        });
 
         recordViewModel = ViewModelProviders.of(getActivity()).get(RecordViewModel.class);
         recordViewModel.getAllRecord().observe(getActivity(), new Observer<List<Record>>() {
@@ -121,54 +86,42 @@ public class DemoFrag2 extends Fragment {
                 stage2=0;
                 emergency=0;
                 Log.i("yog",Integer.toString(recordList.size()));
+
                 for(int i =0; i<recordList.size(); i++){
                     int sys = Integer.parseInt(recordList.get(i).getSys());
                     int dia = Integer.parseInt(recordList.get(i).getDia());
                     sumOfSys = sumOfSys+sys;
                     sumOfDia = sumOfDia +dia;
-                    if(sys<=lowSys && dia<=lowDia){
-                        low++;
-                    }
+
 
                     if((sys>lowSys && sys<=normalSys) &&(dia>lowDia && dia<=normalDia)){
                         normal++;
                     }
-                    if((sys>normalSys && sys<=elevatedSys) &&(dia>normalDia && dia<=elevatedDia)){
+                    else if((sys>normalSys && sys<=elevatedSys) &&(dia>normalDia && dia<=elevatedDia)){
                         elevated++;
                     }
-                    if((sys>normalSys && sys<=elevatedSys) && (dia>lowDia && dia<=normalDia)){
+                    else if((sys>normalSys && sys<=elevatedSys) && (dia>lowDia && dia<=normalDia)){
                         elevated++;
                     }
-                    if((sys>elevatedSys && sys<=high1Sys) || (dia>elevatedDia && dia<=high1Dia)){
+                    else if((sys>elevatedSys && sys<=high1Sys) || (dia>elevatedDia && dia<=high1Dia)){
                         stage1++;
                     }
-                    if((sys>high1Sys && sys<=high2Sys) || (dia>high1Dia && dia<=high2Dia)){
+                    else if((sys>high1Sys && sys<=high2Sys) || (dia>high1Dia && dia<=high2Dia)){
                         stage2++;
                     }
-                    if(sys>high2Sys || dia>high2Dia){
+                    else if(sys>high2Sys || dia>high2Dia){
                         emergency++;
+                    }
+                    else if(sys<=lowSys || dia<=lowDia){
+                        low++;
+                    }
+                    else{
+
                     }
                 }
 
                 averageSys = sumOfSys/total;
                 averageDia = sumOfDia/total;
-//                int normalPer = (normal/total)*100;
-//                int elevatedPer = (elevated/total)*100;
-//                int stage1Per = (stage1/total)*100;
-//                int stage2Per = (stage2/total)*100;
-//                float emergencyPer = (emergency/total)*100;
-//
-//                float normalF = (float)normalPer;
-//                float elevatedF =(float) elevatedPer;
-//                float stage1F = (float) stage1Per;
-//                float stage2F = (float) stage2Per;
-//                float emergencyF = (float)emergencyPer;
-
-//                float normalPer = (float)((normal/total)*100);
-//                float elevatedPer = (float)((elevated/total)*100);
-//                float stage1Per = (float)((stage1/total)*100);
-//                float stage2Per = (float)((stage2/total)*100);
-//                float emergencyPer = (float)((emergency/total)*100);
 
                 float lowF = low;
                 float normalF = normal;

@@ -170,10 +170,10 @@ public class MainActivity extends AppCompatActivity {
 
 
                 break;
-            case R.id.reminder:
-                Intent remindActivity = new Intent(this, ReminderActivity.class);
-                startActivity(remindActivity);
-                break;
+//            case R.id.reminder:
+//                Intent remindActivity = new Intent(this, ReminderActivity.class);
+//                startActivity(remindActivity);
+//                break;
 
             case R.id.deleteAll:
                 alertDialogBuilder = new AlertDialog.Builder(this);

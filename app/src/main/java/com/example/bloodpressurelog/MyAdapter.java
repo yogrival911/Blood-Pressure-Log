@@ -75,7 +75,7 @@ int lowSys, lowDia,normalSys,normalDia,elevatedSys,elevatedDia,high1Sys,high1Dia
         int dia = Integer.parseInt(recordList.get(position).getDia());
 
 
-        if(sys<=lowSys && dia<=lowDia){
+        if(sys<=lowSys || dia<=lowDia){
             holder.heart.setImageResource(R.drawable.fav_icon);
             holder.textViewMark.setText("Low");
         }
@@ -110,14 +110,6 @@ int lowSys, lowDia,normalSys,normalDia,elevatedSys,elevatedDia,high1Sys,high1Dia
         holder.textViewBp.setText(recordList.get(position).getSys() + " / "+ recordList.get(position).getDia());
         holder.textViewNumber.setText(String.valueOf(position+1));
 
-        holder.itemView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Toast.makeText(view.getContext(), "Touched - "+holder.getAdapterPosition(), Toast.LENGTH_SHORT).show();
-
-
-            }
-        });
     }
 
     @Override

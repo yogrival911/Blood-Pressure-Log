@@ -81,7 +81,7 @@
                 <ImageView
                     android:layout_width="25dp"
                     android:layout_height="match_parent"
-                    app:srcCompat="@drawable/fav_icon" />
+                    app:srcCompat="@drawable/heart_green" />
 
                 <TextView
                     android:layout_width="0dp"
@@ -131,7 +131,7 @@
                 <ImageView
                     android:layout_width="25dp"
                     android:layout_height="match_parent"
-                    app:srcCompat="@drawable/fav_icon" />
+                    app:srcCompat="@drawable/heart_yellow" />
 
                 <TextView
                     android:layout_width="0dp"
@@ -181,7 +181,7 @@
                 <ImageView
                     android:layout_width="25dp"
                     android:layout_height="match_parent"
-                    app:srcCompat="@drawable/fav_icon" />
+                    app:srcCompat="@drawable/heart_orange_light" />
 
                 <TextView
                     android:layout_width="0dp"
@@ -231,7 +231,7 @@
                 <ImageView
                     android:layout_width="25dp"
                     android:layout_height="match_parent"
-                    app:srcCompat="@drawable/fav_icon" />
+                    app:srcCompat="@drawable/heart_orange" />
 
                 <TextView
                     android:layout_width="0dp"
@@ -281,7 +281,7 @@
                 <ImageView
                     android:layout_width="25dp"
                     android:layout_height="match_parent"
-                    app:srcCompat="@drawable/fav_icon" />
+                    app:srcCompat="@drawable/heart_red" />
 
                 <TextView
                     android:layout_width="0dp"
