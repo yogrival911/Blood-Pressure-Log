@@ -85,7 +85,6 @@ public class DemoFrag2 extends Fragment {
                 stage1=0;
                 stage2=0;
                 emergency=0;
-                Log.i("yog",Integer.toString(recordList.size()));
 
                 for(int i =0; i<recordList.size(); i++){
                     int sys = Integer.parseInt(recordList.get(i).getSys());
@@ -119,9 +118,14 @@ public class DemoFrag2 extends Fragment {
 
                     }
                 }
-
-                averageSys = sumOfSys/total;
-                averageDia = sumOfDia/total;
+                if(total==0){
+                    averageSys = 0;
+                    averageDia = 0;
+                }
+                else{
+                    averageSys = sumOfSys/total;
+                    averageDia = sumOfDia/total;
+                }
 
                 float lowF = low;
                 float normalF = normal;

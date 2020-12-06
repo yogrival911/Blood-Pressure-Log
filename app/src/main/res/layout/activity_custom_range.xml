@@ -21,6 +21,46 @@
             android:gravity="center"
             android:orientation="vertical">
 
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="Set upper limit for respective risk category"
+                android:textAlignment="viewStart"
+                android:textSize="12sp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="25dp"
+                    android:layout_height="match_parent" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginEnd="10dp"
+                    android:layout_weight="1.5" />
+
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center_horizontal"
+                    android:text="Sys / Dia"
+                    android:textStyle="bold" />
+
+
+
+            </LinearLayout>
+
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -65,7 +105,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight=".5"
                     android:ems="10"
-                    android:inputType="textPersonName"
+                    android:inputType="number"
                     android:textSize="12sp" />
 
 
@@ -115,7 +155,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight=".5"
                     android:ems="10"
-                    android:inputType="textPersonName"
+                    android:inputType="number"
                     android:textSize="12sp" />
 
 
@@ -165,7 +205,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight=".5"
                     android:ems="10"
-                    android:inputType="textPersonName"
+                    android:inputType="number"
                     android:textSize="12sp" />
 
 
@@ -215,7 +255,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight=".5"
                     android:ems="10"
-                    android:inputType="textPersonName"
+                    android:inputType="number"
                     android:textSize="12sp" />
 
 
@@ -265,7 +305,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight=".5"
                     android:ems="10"
-                    android:inputType="textPersonName"
+                    android:inputType="number"
                     android:textSize="12sp" />
 
 
@@ -315,7 +355,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight=".5"
                     android:ems="10"
-                    android:inputType="textPersonName"
+                    android:inputType="number"
                     android:textSize="12sp" />
 
 

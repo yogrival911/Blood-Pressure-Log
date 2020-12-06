@@ -54,8 +54,10 @@ public class GraphFrag extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.graph_frag, container, false);
 
+        lineChartSys = (LineChart) view.findViewById(R.id.lineChartSys);
+        lineChartDia = (LineChart) view.findViewById(R.id.lineChartDia);
         recordViewModel = ViewModelProviders.of(getActivity()).get(RecordViewModel.class);
-//
+
         recordViewModel.getAllRecord().observe(getActivity(), new Observer<List<Record>>() {
             @SuppressLint("ResourceAsColor")
             @Override
@@ -63,6 +65,7 @@ public class GraphFrag extends Fragment {
                 recordList = records;
                 Log.i("yogin", recordList.toString());
                 recordList = records;
+
                 Collections.reverse(recordList);
                 List<Entry> dataValsSys = new ArrayList<>();
                 List<Entry> dataValsDia = new ArrayList<>();
@@ -78,8 +81,6 @@ public class GraphFrag extends Fragment {
                     dataValsScatter.add(new Entry(diaF, sysF));
                 }
 
-                lineChartSys = (LineChart) view.findViewById(R.id.lineChartSys);
-                lineChartDia = (LineChart) view.findViewById(R.id.lineChartDia);
 //                scatterChart = (ScatterChart)view.findViewById(R.id.scatterChart);
                 //Log.i("yog", recordList.toString());
 
@@ -169,6 +170,7 @@ public class GraphFrag extends Fragment {
 
                 lineChartDia.setData(lineDataDia);
                 lineChartDia.invalidate();
+
 
 //---------------Scatter chart-------------------------
 //
