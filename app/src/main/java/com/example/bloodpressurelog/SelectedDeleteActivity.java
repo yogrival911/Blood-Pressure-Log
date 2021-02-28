@@ -33,6 +33,9 @@ public class SelectedDeleteActivity extends AppCompatActivity {
 
         Toast.makeText(this, "Swipe to Delete", Toast.LENGTH_LONG).show();
 
+        setTitle("Delete Reading");
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
         recyclerView = findViewById(R.id.recyclerView);
         layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
@@ -80,6 +83,11 @@ public class SelectedDeleteActivity extends AppCompatActivity {
                 position = viewHolder.getAdapterPosition();
             }
         }).attachToRecyclerView(recyclerView);
+    }
 
+    @Override
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+        return true;
     }
 }

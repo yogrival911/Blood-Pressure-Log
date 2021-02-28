@@ -38,6 +38,9 @@ public class FormActivity extends AppCompatActivity {
         spinnerArm = (Spinner)findViewById(R.id.spinnerArm);
         spinnerPosture = (Spinner)findViewById(R.id.spinnerPosture);
 
+        setTitle("New Reading");
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
         editTextSys = (EditText)findViewById(R.id.editTextSys);
         editTextDia = (EditText)findViewById(R.id.editTextDia);
         editTextPulse =(EditText)findViewById(R.id.editTextPulse);
@@ -180,5 +183,11 @@ public class FormActivity extends AppCompatActivity {
         });
 
 
+    }
+
+    @Override
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+        return true;
     }
 }

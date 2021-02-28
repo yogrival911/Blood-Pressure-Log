@@ -206,6 +206,17 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intentExplain);
                 break;
 
+            case R.id.shareApp:
+                Intent sharingIntent = new Intent();
+                sharingIntent.setAction(Intent.ACTION_SEND);
+                sharingIntent.setType("text/plain");
+                String shareBody = "Download Blood Pressuse Diary App to Log & Analyse Daily Blood Pressure Readings: " +
+                        "https://play.google.com/store/apps/details?id=com.yogrival.bloodpressurelog";
+                sharingIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, "Blood Pressure Diary");
+                sharingIntent.putExtra(Intent.EXTRA_TEXT, shareBody);
+                startActivity(Intent.createChooser(sharingIntent, "Share via"));
+                break;
+
             case R.id.exportCSV:
 
                 RoomDatabaseRecord db = RoomDatabaseRecord.getDatabaseInstance(this);

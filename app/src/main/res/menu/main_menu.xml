@@ -3,10 +3,8 @@
     xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:id="@+id/pdf"
-        android:icon="@drawable/ic_baseline_picture_as_pdf_24"
-        android:title="Save as Pdf"
-        app:showAsAction="always" />
+        android:id="@+id/reminder"
+        android:title="Set Reminder" />
     <item
         android:id="@+id/range"
         android:title="Custom Range" />
@@ -17,12 +15,18 @@
         android:id="@+id/deleteAll"
         android:title="Delete All" />
     <item
+        android:id="@+id/pdf"
+        android:icon="@drawable/ic_baseline_picture_as_pdf_24"
+        android:title="Save as Pdf" />
+    <item
         android:id="@+id/exportCSV"
         android:title="Export CSV" />
     <item
-        android:id="@+id/reminder"
-        android:title="Set Reminder" />
-    <item
         android:id="@+id/explained"
         android:title="Guide" />
+    <item
+        android:id="@+id/shareApp"
+        android:icon="@drawable/share_icon"
+        android:title="Share App"
+        app:showAsAction="always" />
 </menu>

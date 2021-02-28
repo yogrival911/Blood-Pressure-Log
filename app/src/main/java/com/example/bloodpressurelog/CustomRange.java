@@ -22,6 +22,9 @@ int lowSys, lowDia,normalSys,normalDia,elevatedSys,elevatedDia,high1Sys,high1Dia
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_custom_range);
 
+        setTitle("Customise Range");
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
         editTextLowSys = (EditText)findViewById(R.id.editTextLowSys);
         editTextLowDia = (EditText)findViewById(R.id.editTextLowDia);
         editTextNormalSys = (EditText)findViewById(R.id.editTextNormalSys);
@@ -177,5 +180,11 @@ int lowSys, lowDia,normalSys,normalDia,elevatedSys,elevatedDia,high1Sys,high1Dia
             }
         });
 
+    }
+
+    @Override
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+        return true;
     }
 }

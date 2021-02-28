@@ -11,6 +11,9 @@ public class ExplainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_explain);
 
+        setTitle("Guide");
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
         ExpandableTextView expandNumberMean = (ExpandableTextView) findViewById(R.id.numberMean);
         expandNumberMean.setText(getResources().getString(R.string.number_mean));
         expandNumberMean.setTrimLength(25);
@@ -34,5 +37,11 @@ public class ExplainActivity extends AppCompatActivity {
         ExpandableTextView emergency = (ExpandableTextView) findViewById(R.id.emergency);
         emergency.setText(getResources().getString(R.string.emergency));
         emergency.setTrimLength(9);
+    }
+
+    @Override
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+        return true;
     }
 }

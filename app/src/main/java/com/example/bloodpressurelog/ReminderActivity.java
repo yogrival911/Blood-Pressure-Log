@@ -64,6 +64,8 @@ public class ReminderActivity extends AppCompatActivity {
         textViewTime2.setVisibility(View.INVISIBLE);
         textViewTime3.setVisibility(View.INVISIBLE);
 
+        setTitle("Reminder");
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         timePicker = (TimePicker) findViewById(R.id.timePicker);
         okayButton = (Button) findViewById(R.id.okayButton);
@@ -260,5 +262,11 @@ public class ReminderActivity extends AppCompatActivity {
         });
 
 
+    }
+
+    @Override
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+        return true;
     }
 }
