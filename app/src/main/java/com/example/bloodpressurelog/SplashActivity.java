@@ -2,6 +2,9 @@ package com.example.bloodpressurelog;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.animation.ObjectAnimator;
+import android.animation.PropertyValuesHolder;
+import android.animation.ValueAnimator;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
@@ -30,10 +33,19 @@ public class SplashActivity extends AppCompatActivity {
         imageView = findViewById(R.id.imageView);
         textViewTitle = findViewById(R.id.textViewTitle);
         slogan = findViewById(R.id.slogan);
-
-        imageView.setAnimation(topAnimation);
+//
+//        imageView.setAnimation(topAnimation);
         textViewTitle.setAnimation(bottomAnimation);
         slogan.setAnimation(bottomAnimation);
+
+        ObjectAnimator objectAnimator = ObjectAnimator.ofPropertyValuesHolder(imageView,
+                PropertyValuesHolder.ofFloat("scaleX", 1.2f),
+                PropertyValuesHolder.ofFloat("scaleY", 1.2f));
+
+        objectAnimator.setDuration(1000);
+        objectAnimator.setRepeatCount(ValueAnimator.INFINITE);
+        objectAnimator.setRepeatMode(ValueAnimator.REVERSE);
+        objectAnimator.start();
 
         new Handler().postDelayed(new Runnable() {
             @Override

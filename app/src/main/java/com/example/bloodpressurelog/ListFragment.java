@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
@@ -26,6 +27,7 @@ public class ListFragment extends Fragment {
     LinearLayoutManager layoutManager;
     RecordViewModel recordViewModel;
     MyAdapter myAdapter;
+    ConstraintLayout noDataLayout;
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -71,6 +73,7 @@ public class ListFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_list, container, false);
         recyclerView = view.findViewById(R.id.recyclerView);
+        noDataLayout = view.findViewById(R.id.noDataLayout);
         layoutManager = new LinearLayoutManager(getContext());
         recyclerView.setLayoutManager(layoutManager);
         myAdapter = new MyAdapter(getContext());
@@ -80,6 +83,15 @@ public class ListFragment extends Fragment {
             @Override
             public void onChanged(List<Record> records) {
                 myAdapter.setRecordList(records);
+                if(records.isEmpty()){
+                    noDataLayout.setVisibility(View.VISIBLE);
+                    myAdapter.notifyDataSetChanged();
+                }
+                else{
+                    noDataLayout.setVisibility(View.GONE);
+                    myAdapter.setRecordList(records);
+                }
+
 
             }
         });
